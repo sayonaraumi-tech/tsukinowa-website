@@ -2,7 +2,6 @@
 // illustration は WORKS に施工写真として表示されません。実際の公開許可を得た写真のみ使用してください。
 window.SITE = {
   "lineUrl": "",
-  "marketUrl": "",
   "logoUrl": "assets/images/logo/company-logo.svg",
   "phone": "070-3887-7789",
   "email": "geturinnkaisha@gmail.com",

@@ -4,13 +4,12 @@ nav.addEventListener('click',e=>{if(e.target.closest('a')){toggle.setAttribute('
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){toggle.setAttribute('aria-expanded','false');nav.classList.remove('open');toggle.focus();}});
 const config=window.SITE;
 function safeUrl(value){try{const url=new URL(value);return url.protocol==='https:'?url.href:null;}catch{return null;}}
-const lineUrl=safeUrl(config.lineUrl),marketUrl=safeUrl(config.marketUrl);
+const lineUrl=safeUrl(config.lineUrl);
 const phoneHref='tel:'+config.phone.replace(/[^0-9+]/g,'');
 document.querySelectorAll('[data-phone]').forEach(a=>{a.href=phoneHref;if(a.textContent!=='電話')a.textContent=config.phone;});
 document.querySelectorAll('[data-email]').forEach(a=>{a.href='mailto:'+config.email;if(!a.classList.contains('button'))a.textContent=config.email;});
 document.querySelectorAll('[data-email-text]').forEach(e=>{e.textContent=config.email;});
 if(lineUrl){document.querySelectorAll('[data-line-pending]').forEach(e=>e.hidden=true);document.querySelectorAll('[data-line]').forEach(a=>{a.href=lineUrl;a.textContent=a.dataset.lineLabel||(a.closest('.mobile-contact')?'LINE':'LINEで相談');});const direct=document.querySelector('[data-line-direct]');if(direct){direct.hidden=false;direct.href=lineUrl;document.querySelector('[data-line-status]').textContent='写真を添えて、お気軽にご相談ください。';}}
-if(marketUrl){document.querySelectorAll('[data-market]').forEach(a=>{a.href=marketUrl;a.textContent='店舗ページを見る';});const direct=document.querySelector('[data-market-direct]');if(direct){direct.hidden=false;direct.href=marketUrl;document.querySelector('[data-market-status]').textContent='店舗ページはこちらからご覧いただけます。';}}
 if(config.logoUrl){document.querySelectorAll('.logo-slot').forEach(slot=>{const img=document.createElement('img');img.addEventListener('error',()=>{slot.replaceChildren();},{once:true});img.src=config.logoUrl;img.alt='月輪合同会社 ロゴ';slot.replaceChildren(img);slot.setAttribute('aria-hidden','true');});}
 document.querySelectorAll('[data-price]').forEach(e=>{e.textContent=config.price;});
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;};
