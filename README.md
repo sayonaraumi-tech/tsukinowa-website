@@ -130,3 +130,13 @@ canonical、og:url、og:image、robots.txt 和六页 sitemap 已设为目标测�
 文件预留 `assets/images/company/`，可以日后加入授权的公司图片。
 
 部署操作依据：[GitHub 官方 Pages 发布源说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。免费方案可使用公开仓库；私有仓库支持取决于 GitHub 方案。
+
+## 第二轮布局与信息层级优化
+
+首页按 Hero → 选择理由 → 服务案内 → 法人/个人分流 → 施工事例 → 料金 → 对应物业/地区 → LINE 写真咨询 → 五步流程 → FAQ → 联系区 → Footer 排列。手机优势单列、服务上下排列、流程纵向；桌面服务图文交替。法人/个人按钮分别锚点到报价说明。服务「詳しく見る」沿用联系页，并预选对应服务。
+
+首页最多显示四个案例，已发布真实案例优先。首页真实案例为施工后大图、标签、地区/物业/说明，Before / After 可展开；列表页继续显示真实配对照片。未发布案例只展示一个真实照片专用占位，不将占位伪装成 Before / After，亦不编造地区/物业。
+
+LINE 仍由 data.js 的 lineUrl 统一控制；未配置时按钮跳到 contact.html#line，准备中提示保留。配置真实链接后，准备中提示自动隐藏，照片咨询按钮保持「LINEで写真を送る」。Hero 与三项允许服务仍使用原有中性示意图，内装補修和四个案例仍待真实照片；Logo、favicon、LINE、店铺链接和政策草案的待确认状态不变。
+
+本轮仅提交 layout-raizin-inspired 的 PR，保留六页 noindex，不更改 Pages 发布来源、不绑定域名、不自动合并。截图和检查记录见该 PR 及交付文件；仓库不包含临时浏览器或截图测试依赖。
