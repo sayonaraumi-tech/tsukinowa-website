@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sayonaraumi-tech.github.io/tsukinowa-website/sitemap.xml
