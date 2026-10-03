@@ -1,6 +1,6 @@
 # tsukinowa-website — 月輪合同会社 / GETURIN LLC
 
-独立静态官网第一版。HTML / CSS / JavaScript，无第三方运行依赖、数据库、Firebase、登录、广告或追踪脚本。未访问或修改 geruninn。Hero 与允许的服务图为明确标注的中性示意图，真实施工案例目前为专用占位框；尚未使用 AI 生成图片。公司 Logo 未提供，固定文件 company-logo.svg 当前为明确的 LOGO 占位，没有重新设计 Logo。favicon 是临时「月」文字图标。
+独立静态官网第一版。HTML / CSS / JavaScript，无第三方运行依赖、数据库、Firebase、登录、广告或追踪脚本。未访问或修改 geruninn。Hero 与允许的服务图为明确标注的中性示意图，真实施工案例目前为专用占位框；第三轮已将 Hero 与クロス/CF/原状回復更换为注明「イメージ / AI生成・施工事例ではありません」的室内氛围图。公司 Logo 未提供，固定文件 company-logo.svg 当前为透明无框占位，没有重新设计 Logo。favicon 是临时「月」文字图标。
 
 ## 目录
 
@@ -37,7 +37,7 @@ tsukinowa-website/
 
 ## 替换现有 Logo 与 favicon
 
-只需以正式 SVG 替换 `assets/images/logo/company-logo.svg`，六页自动生效。当前该文件为明确占位；若提供 PNG/WebP，则放入同目录并仅修改 data.js 的 logoUrl。图片加载失败会恢复 LOGO 占位。不能用临时 LOGO 框当作正式品牌 Logo。将当前文字 favicon 替换为现有 Logo 的合适版本，并同步各页 `<link rel="icon">`。
+只需以正式 SVG 替换 `assets/images/logo/company-logo.svg`，六页自动生效。当前该文件为透明无框占位，公司名作为主识别；若提供 PNG/WebP，则放入同目录并仅修改 data.js 的 logoUrl。图片加载失败时保留空的无框位置和公司名，不显示 LOGO 字样。将当前文字 favicon 替换为现有 Logo 的合适版本，并同步各页 `<link rel="icon">`。
 
 ## 图片使用策略与替换
 
@@ -137,6 +137,10 @@ canonical、og:url、og:image、robots.txt 和六页 sitemap 已设为目标测�
 
 首页最多显示四个案例，已发布真实案例优先。首页真实案例为施工后大图、标签、地区/物业/说明，Before / After 可展开；列表页继续显示真实配对照片。未发布案例只展示一个真实照片专用占位，不将占位伪装成 Before / After，亦不编造地区/物业。
 
-LINE 仍由 data.js 的 lineUrl 统一控制；未配置时按钮跳到 contact.html#line，准备中提示保留。配置真实链接后，准备中提示自动隐藏，照片咨询按钮保持「LINEで写真を送る」。Hero 与三项允许服务仍使用原有中性示意图，内装補修和四个案例仍待真实照片；Logo、favicon、LINE、店铺链接和政策草案的待确认状态不变。
+LINE 仍由 data.js 的 lineUrl 统一控制；未配置时按钮跳到 contact.html#line，准备中提示保留。配置真实链接后，准备中提示自动隐藏，照片咨询按钮保持「LINEで写真を送る」。第二轮时 Hero 与三项允许服务使用中性示意图；第三轮已更新为有标注的 AI 室内氛围图。内装補修和四个案例仍待真实照片；Logo、favicon、LINE、店铺链接和政策草案的待确认状态不变。
 
 本轮仅提交 layout-raizin-inspired 的 PR，保留六页 noindex，不更改 Pages 发布来源、不绑定域名、不自动合并。截图和检查记录见该 PR 及交付文件；仓库不包含临时浏览器或截图测试依赖。
+
+## 第三轮视觉精修（2026-10-03）
+
+结构与信息顺序不变。Logo 为透明无框占位，统一配置不变；手机 Hero、服务、FAQ 继续纵向阅读，LINE 准备提示降为按钮辅助说明。压缩区块间距、统一三项服务图比例、简化真实施工照片占位、减轻底部咨询栏并保留 safe-area。价格口径与全部 noindex 不变。验收与待补清单见 VISUAL_REVIEW.md。

@@ -140,3 +140,136 @@
   .home-contact-methods{grid-template-columns:1fr;gap:28px}.contact-channel:last-child{grid-column:auto}
   .contact-channel .button{width:100%}.contact-channel .phone{font-size:28px}
 }
+
+/* Third-round visual finish: retain the confirmed section order and content rules. */
+.header{padding-block:20px;gap:24px}
+.brand{gap:10px}.brand strong{font-size:24px;letter-spacing:.1em}
+.brand small{font-size:10px;letter-spacing:.2em;margin-top:3px}
+.brand-tag{display:none}
+.logo-slot{width:24px;height:40px;border:0;flex-shrink:0}
+.header nav{gap:22px}.nav-contact{padding:8px 16px}
+.button{transition:background-color .15s ease;min-height:50px}
+.button.primary{border-color:#887347}
+.home .hero{gap:48px;padding-block:38px 48px;grid-template-columns:1.05fr 1fr}
+.home .hero h1{font-size:clamp(32px,3.05vw,44px);line-height:1.65;margin-bottom:18px}
+.home .eyebrow{margin-bottom:20px;font-size:12px;letter-spacing:.1em}
+.home .hero-tag{font-size:21px;margin-bottom:16px}
+.home .hero-description{line-height:1.85;margin-bottom:0}
+.home .hero .buttons{margin-top:22px}
+.home .hero-cta{width:fit-content}
+.home .hero .line-pending{font-size:11px;line-height:1.6;margin-top:7px;text-align:right}
+.home .hero-image img{height:400px;object-position:center;aspect-ratio:3/2}
+.home .hero-image{padding-bottom:8px}
+.home .hero-image:after{content:'';position:absolute;bottom:0;left:0;width:52px;height:1px;background:var(--gold)}
+.home .hero-image figcaption{font-size:11px;line-height:1.7;color:var(--muted);margin-top:8px}
+.home .section{padding-block:68px}
+.home .section-header{margin-bottom:28px}
+.home h2{font-size:clamp(26px,2.6vw,32px);margin-bottom:0}
+.home .reasons{padding-block:44px}
+.home .advantages-grid{gap:28px}
+.home .advantage h3{font-size:16px;margin-block:10px 8px}
+.home .advantage p{font-size:13px;line-height:1.85}
+.home .advantage svg{width:26px;height:26px}
+.service-list{gap:42px}
+.service-row,.service-row:nth-child(even){gap:54px}
+.service-row img{aspect-ratio:8/5}
+.service-row figcaption{font-size:11px;line-height:1.7;margin-top:7px}
+.service-copy h3{font-size:27px;margin-bottom:12px}
+.service-copy p{font-size:15px;line-height:1.9;margin-bottom:16px}
+.service-detail{min-height:44px;font-size:14px;gap:28px}
+.customer-grid{gap:48px}.customer+ .customer{padding-left:48px}
+.customer h3{font-size:25px;margin-bottom:10px}
+.customer ul{margin-block:14px 22px}.customer li{padding-block:2px}
+.home .works-grid.is-placeholder-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.home .work[data-image-type="placeholder"]{padding-bottom:18px}
+.home .work[data-image-type="placeholder"] .work-placeholder img{aspect-ratio:4/3}
+.home .work[data-image-type="placeholder"] .work-heading{gap:8px;margin-top:14px}
+.home .work[data-image-type="placeholder"] h3{font-size:17px}
+.work[data-image-type="placeholder"] .badge{border:0;padding:0;font-size:11px}
+.work[data-image-type="placeholder"] .work-tags{margin-block:9px}
+.work[data-image-type="placeholder"] p{font-size:12px;line-height:1.8}
+.section-action{margin-top:28px}
+.home .pricing-grid{gap:48px}.home .corporate{padding-left:40px}
+.home .audience-label{font-size:13px;margin-bottom:12px}
+.home .price{margin-block:8px 14px;line-height:1.35}
+.pricing-assurance{margin-top:24px;padding-top:18px}
+.coverage-layout,.line-layout{gap:48px}.coverage-area{padding-left:40px}
+.line-layout h2{margin-bottom:16px}.line-layout p{font-size:15px;line-height:1.9;margin-bottom:0}
+.line-action .button{min-height:52px}
+.line-pending,.line-action .line-pending{font-size:12px;line-height:1.8;margin-top:8px;color:var(--muted)}
+.home .flow{gap:24px}.home .flow p{margin-bottom:0}
+.faq-layout{grid-template-columns:.85fr 2fr;gap:48px}
+.faq-list summary{padding-block:18px;font-size:15px}
+.faq-list details p{margin-bottom:18px;font-size:14px}
+.contact-channel{padding-top:20px;border-top-width:1px}
+.contact-channel h3{font-size:17px;margin-bottom:16px}
+footer{padding-top:44px}.footer-grid{gap:36px}
+.mobile-line-status{font-size:10px;color:var(--muted);margin-left:5px}
+@media(max-width:1150px){
+ .header nav{gap:12px}.header{padding-inline:25px}.brand strong{font-size:22px}
+ .home .hero{gap:32px}.home .hero-image img{height:370px}
+ .service-row,.service-row:nth-child(even){gap:36px}
+ .home .works-grid.is-placeholder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:950px){
+ .home .hero h1{font-size:30px}.home .hero-tag{font-size:18px}
+ .home .hero .buttons{gap:8px}.home .hero .button{font-size:14px;padding-inline:18px}
+ .home .hero-image img{height:360px}
+ .home .section{padding-block:56px}.home .reasons{padding-block:40px}
+ .customer-grid,.coverage-layout,.line-layout,.faq-layout{gap:32px}
+ .customer+ .customer,.coverage-area{padding-left:32px}
+ .home .flow li{padding-block:20px}
+}
+@media(max-width:600px){
+ html{scroll-padding-top:24px}
+ body{padding-bottom:calc(54px + env(safe-area-inset-bottom))}
+ .header{padding:12px 20px;gap:12px}.brand{gap:0}.brand strong{font-size:20px}
+ .logo-slot{width:20px;height:32px;margin-right:6px}
+ .brand small{font-size:9px;margin-top:2px}.menu-toggle{border:0;width:44px;height:44px}
+ .home .hero{grid-template-columns:1fr;padding-block:24px 30px;gap:18px}
+ .home .hero .eyebrow{display:none}
+ .home .hero h1{font-size:clamp(27px,7.3vw,31px);line-height:1.5;margin-bottom:12px;letter-spacing:.015em}
+ .home .hero-tag{font-size:17px;letter-spacing:.03em;margin-bottom:12px}
+ .home .hero-description{font-size:13px;line-height:1.85}
+ .home .hero-cta{width:100%}
+ .home .hero .buttons{margin-top:16px;gap:9px}
+ .home .hero .button{min-height:46px;padding:9px 12px;font-size:14px}
+ .home .hero .line-pending{max-width:none;font-size:10px;margin-top:5px;line-height:1.5;padding-right:8px}
+ .home .hero-image img{height:auto;aspect-ratio:16/9;object-position:center 58%}
+ .home .hero-image figcaption{font-size:10px;line-height:1.5;margin-top:6px}
+ .home .hero-image{padding-bottom:8px}
+ .home .section{padding-block:46px}.home .section-header{margin-bottom:24px;gap:10px}
+ .home .section-intro{font-size:14px}
+ .home .reasons{padding-block:36px}
+ .home .advantage{padding-block:18px;gap:0 16px}
+ .home .advantage h3{font-size:16px;margin:0 0 6px}
+ .home .advantage p{font-size:13px}
+ .service-list{gap:32px}.service-row,.service-row:nth-child(even){gap:16px}
+ .service-row img{aspect-ratio:3/2}
+ .service-copy h3{font-size:23px;margin-bottom:8px}
+ .service-copy p{font-size:14px;margin-bottom:8px;line-height:1.9}
+ .service-detail{min-height:44px}
+ .customer-grid{gap:26px}.customer+ .customer{padding:26px 0 0}
+ .customer h3{font-size:23px}.customer p,.customer li{font-size:14px}
+ .home .works-grid.is-placeholder-grid{grid-template-columns:1fr;gap:24px}
+ .home .work[data-image-type="placeholder"] .work-placeholder img{aspect-ratio:2/1;object-fit:cover}
+ .home .work[data-image-type="placeholder"] h3{font-size:19px}
+ .work[data-image-type="placeholder"] .work-heading{justify-content:space-between}
+ .work[data-image-type="placeholder"] .work-tags{display:inline-flex;margin-block:6px}
+ .home .pricing-grid{gap:24px}.home .corporate{padding:24px 0 0}
+ .home .pricing-grid h3{font-size:18px}.home .price{font-size:42px}
+ .pricing-assurance{gap:6px;margin-top:20px;font-size:14px}
+ .coverage-layout{gap:24px}.coverage-area{padding:24px 0 0}
+ .coverage-layout h3{font-size:18px}
+ .line-layout{gap:20px}.line-layout p{font-size:14px}
+ .line-action .button{min-height:48px}
+ .home .flow li{padding-block:18px}.home .flow h3{font-size:17px}
+ .faq-layout{grid-template-columns:1fr;gap:20px}.faq-list summary{font-size:14px;padding-block:18px;gap:14px}
+ .home-contact-methods{gap:24px}.contact-channel{padding-top:18px}
+ .mobile-contact{padding:5px 12px calc(5px + env(safe-area-inset-bottom));gap:0}
+ .mobile-contact a{min-height:42px;border:0;font-size:12px;line-height:1.4}
+ .mobile-contact a+a{border-left:1px solid var(--line)}
+ .mobile-contact a:last-child{border-color:var(--line)}
+ footer{padding-top:36px}
+}
+@media(prefers-reduced-motion:reduce){.button{transition:none}}

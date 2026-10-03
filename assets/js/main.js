@@ -11,7 +11,7 @@ document.querySelectorAll('[data-email]').forEach(a=>{a.href='mailto:'+config.em
 document.querySelectorAll('[data-email-text]').forEach(e=>{e.textContent=config.email;});
 if(lineUrl){document.querySelectorAll('[data-line-pending]').forEach(e=>e.hidden=true);document.querySelectorAll('[data-line]').forEach(a=>{a.href=lineUrl;a.textContent=a.dataset.lineLabel||(a.closest('.mobile-contact')?'LINE':'LINEで相談');});const direct=document.querySelector('[data-line-direct]');if(direct){direct.hidden=false;direct.href=lineUrl;document.querySelector('[data-line-status]').textContent='写真を添えて、お気軽にご相談ください。';}}
 if(marketUrl){document.querySelectorAll('[data-market]').forEach(a=>{a.href=marketUrl;a.textContent='店舗ページを見る';});const direct=document.querySelector('[data-market-direct]');if(direct){direct.hidden=false;direct.href=marketUrl;document.querySelector('[data-market-status]').textContent='店舗ページはこちらからご覧いただけます。';}}
-if(config.logoUrl){document.querySelectorAll('.logo-slot').forEach(slot=>{const img=document.createElement('img');img.addEventListener('error',()=>{slot.textContent='LOGO';slot.setAttribute('aria-label','既存ロゴの掲載準備中');slot.style.border='';},{once:true});img.src=config.logoUrl;img.alt='月輪合同会社 ロゴ';slot.replaceChildren(img);slot.removeAttribute('aria-label');slot.style.border='none';});}
+if(config.logoUrl){document.querySelectorAll('.logo-slot').forEach(slot=>{const img=document.createElement('img');img.addEventListener('error',()=>{slot.replaceChildren();},{once:true});img.src=config.logoUrl;img.alt='月輪合同会社 ロゴ';slot.replaceChildren(img);slot.setAttribute('aria-hidden','true');});}
 document.querySelectorAll('[data-price]').forEach(e=>{e.textContent=config.price;});
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;};
 // WORKS accepts real photo paths only; AI/illustration or unclassified entries stay placeholders.
@@ -38,8 +38,8 @@ function renderWork(w,preview=false){
   if(!published){
     const placeholder=el('figure',null,'work-placeholder');const img=el('img');
     img.src='assets/images/works/placeholders/real-photo.svg';img.alt=`${w.title}の実際の施工写真は掲載準備中`;img.width=800;img.height=600;img.loading='lazy';
-    placeholder.append(img,el('figcaption','実際の施工写真を掲載予定'));
-    article.append(placeholder,heading,tags,el('p','写真・地区・物件情報は、公開準備が整い次第ご紹介します。'));
+    placeholder.append(img);
+    article.append(placeholder,heading,tags,el('p','実際の施工写真と物件情報を掲載予定。'));
     return article;
   }
   const dl=el('dl');
@@ -56,6 +56,7 @@ function renderWork(w,preview=false){
 document.querySelectorAll('[data-works]').forEach(grid=>{
   const limit=Number(grid.dataset.workLimit)||config.works.length;
   const works=grid.hasAttribute('data-work-preview')?[...config.works.filter(hasRealPhotos),...config.works.filter(w=>!hasRealPhotos(w))]:config.works;
+  grid.classList.toggle('is-placeholder-grid',works.slice(0,limit).every(w=>!hasRealPhotos(w)));
   works.slice(0,limit).forEach(w=>grid.append(renderWork(w,grid.hasAttribute('data-work-preview'))));
 });
 const form=document.querySelector('#contact-form');
