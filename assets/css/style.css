@@ -273,3 +273,7 @@ footer{padding-top:44px}.footer-grid{gap:36px}
  footer{padding-top:36px}
 }
 @media(prefers-reduced-motion:reduce){.button{transition:none}}
+
+/* Official user-supplied logo; shared file serves all six pages. */
+.logo-slot{width:44px;height:46px}.brand{gap:12px}
+@media(max-width:600px){.logo-slot{width:36px;height:38px;margin-right:0}.brand{gap:10px}}

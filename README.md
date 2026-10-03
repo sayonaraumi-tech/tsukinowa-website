@@ -1,6 +1,6 @@
 # tsukinowa-website — 月輪合同会社 / GETURIN LLC
 
-独立静态官网第一版。HTML / CSS / JavaScript，无第三方运行依赖、数据库、Firebase、登录、广告或追踪脚本。未访问或修改 geruninn。Hero 与允许的服务图为明确标注的中性示意图，真实施工案例目前为专用占位框；第三轮已将 Hero 与クロス/CF/原状回復更换为注明「イメージ / AI生成・施工事例ではありません」的室内氛围图。公司 Logo 未提供，固定文件 company-logo.svg 当前为透明无框占位，没有重新设计 Logo。favicon 是临时「月」文字图标。
+独立静态官网第一版。HTML / CSS / JavaScript，无第三方运行依赖、数据库、Firebase、登录、广告或追踪脚本。未访问或修改 geruninn。Hero 与允许的服务图为明确标注的中性示意图，真实施工案例目前为专用占位框；第三轮已将 Hero 与クロス/CF/原状回復更换为注明「イメージ / AI生成・施工事例ではありません」的室内氛围图。公司 Logo 已由用户提供，固定文件 company-logo.svg 内嵌金色月轮与房屋原图，没有重新设计 Logo。favicon 是临时「月」文字图标。
 
 ## 目录
 
@@ -37,7 +37,7 @@ tsukinowa-website/
 
 ## 替换现有 Logo 与 favicon
 
-只需以正式 SVG 替换 `assets/images/logo/company-logo.svg`，六页自动生效。当前该文件为透明无框占位，公司名作为主识别；若提供 PNG/WebP，则放入同目录并仅修改 data.js 的 logoUrl。图片加载失败时保留空的无框位置和公司名，不显示 LOGO 字样。将当前文字 favicon 替换为现有 Logo 的合适版本，并同步各页 `<link rel="icon">`。
+只需以正式 SVG 替换 `assets/images/logo/company-logo.svg`，六页自动生效。当前该文件内嵌用户提供的正式 Logo，公司名保留为主识别；若提供 PNG/WebP，则放入同目录并仅修改 data.js 的 logoUrl。图片加载失败时保留空的无框位置和公司名，不显示 LOGO 字样。将当前文字 favicon 替换为现有 Logo 的合适版本，并同步各页 `<link rel="icon">`。
 
 ## 图片使用策略与替换
 
@@ -144,3 +144,7 @@ LINE 仍由 data.js 的 lineUrl 统一控制；未配置时按钮跳到 contact.
 ## 第三轮视觉精修（2026-10-03）
 
 结构与信息顺序不变。Logo 为透明无框占位，统一配置不变；手机 Hero、服务、FAQ 继续纵向阅读，LINE 准备提示降为按钮辅助说明。压缩区块间距、统一三项服务图比例、简化真实施工照片占位、减轻底部咨询栏并保留 safe-area。价格口径与全部 noindex 不变。验收与待补清单见 VISUAL_REVIEW.md。
+
+### 正式 Logo 已接入
+
+用户提供的金色月轮/房屋 Logo 已内嵌到统一 company-logo.svg，不重绘；调整显示范围排除截图外围空白。其余真实照片位置和 LINE/店铺链接配置继续保留，后续收到资料再替换。
