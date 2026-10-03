@@ -1,6 +1,6 @@
 # tsukinowa-website — 月輪合同会社 / GETURIN LLC
 
-独立静态官网第一版。HTML / CSS / JavaScript，无第三方运行依赖、数据库、Firebase、登录、广告或追踪脚本。未访问或修改 geruninn。Hero 与允许的服务图为明确标注的中性示意图，真实施工案例目前为专用占位框；尚未使用 AI 生成图片。公司 Logo 未提供，固定文件 company-logo.svg 当前为明确的 LOGO 占位，没有重新设计 Logo。favicon 是临时「月」文字图标。
+独立静态官网第一版。HTML / CSS / JavaScript，无第三方运行依赖、数据库、Firebase、登录、广告或追踪脚本。未访问或修改 geruninn。Hero 与允许的服务图为明确标注的中性示意图，真实施工案例目前为专用占位框；第三轮已将 Hero 与クロス/CF/原状回復更换为注明「イメージ / AI生成・施工事例ではありません」的室内氛围图。公司 Logo 已由用户提供，固定文件 company-logo.svg 内嵌金色月轮与房屋原图，没有重新设计 Logo。favicon 是临时「月」文字图标。
 
 ## 目录
 
@@ -37,7 +37,7 @@ tsukinowa-website/
 
 ## 替换现有 Logo 与 favicon
 
-只需以正式 SVG 替换 `assets/images/logo/company-logo.svg`，六页自动生效。当前该文件为明确占位；若提供 PNG/WebP，则放入同目录并仅修改 data.js 的 logoUrl。图片加载失败会恢复 LOGO 占位。不能用临时 LOGO 框当作正式品牌 Logo。将当前文字 favicon 替换为现有 Logo 的合适版本，并同步各页 `<link rel="icon">`。
+只需以正式 SVG 替换 `assets/images/logo/company-logo.svg`，六页自动生效。当前该文件内嵌用户提供的正式 Logo，公司名保留为主识别；若提供 PNG/WebP，则放入同目录并仅修改 data.js 的 logoUrl。图片加载失败时保留空的无框位置和公司名，不显示 LOGO 字样。将当前文字 favicon 替换为现有 Logo 的合适版本，并同步各页 `<link rel="icon">`。
 
 ## 图片使用策略与替换
 
@@ -90,7 +90,7 @@ Hero：在 `index.html` 修改 `.hero-image img` 的 src、alt、width、height 
 
 ## 修改价格、LINE 与店铺链接
 
-修改 data.js 的 `price`（当前 `1,400`，单位 `円/m～`）。如单位或收费内容变化，请同步首页报价说明。修改 `lineUrl` 为真实的 HTTPS LINE 官方账户/加好友链接。未填写时，按钮跳转联系页并明确显示准备中，不使用虚假的二维码或账号。修改 `marketUrl` 为真实くらしのマーケット店铺链接；为空时保持准备中。
+修改 data.js 的 `price`（当前 `1,400`，单位 `円/m～`）。如单位或收费内容变化，请同步首页报价说明。修改 `lineUrl` 为真实的 HTTPS LINE 官方账户/加好友链接。未填写时，按钮跳转联系页并明确显示准备中，不使用虚假的二维码或账号。くらしのマーケット仅显示「くらしのマーケット掲載店」文字，不设置店铺链接或按钮。
 
 电话和邮箱统一配置在 data.js 的 phone / email，链接、显示文字及表单收件地址自动同步。HTML 保留无 JavaScript 时可用的电话／邮箱后备值，修改号码时也需同步这些后备值。地址和营业时间仍直接写入 HTML。代表者姓名未公开。
 
@@ -130,3 +130,21 @@ canonical、og:url、og:image、robots.txt 和六页 sitemap 已设为目标测�
 文件预留 `assets/images/company/`，可以日后加入授权的公司图片。
 
 部署操作依据：[GitHub 官方 Pages 发布源说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。免费方案可使用公开仓库；私有仓库支持取决于 GitHub 方案。
+
+## 第二轮布局与信息层级优化
+
+首页按 Hero → 选择理由 → 服务案内 → 法人/个人分流 → 施工事例 → 料金 → 对应物业/地区 → LINE 写真咨询 → 五步流程 → FAQ → 联系区 → Footer 排列。手机优势单列、服务上下排列、流程纵向；桌面服务图文交替。法人/个人按钮分别锚点到报价说明。服务「詳しく見る」沿用联系页，并预选对应服务。
+
+首页最多显示四个案例，已发布真实案例优先。首页真实案例为施工后大图、标签、地区/物业/说明，Before / After 可展开；列表页继续显示真实配对照片。未发布案例只展示一个真实照片专用占位，不将占位伪装成 Before / After，亦不编造地区/物业。
+
+LINE 仍由 data.js 的 lineUrl 统一控制；未配置时按钮跳到 contact.html#line，准备中提示保留。配置真实链接后，准备中提示自动隐藏，照片咨询按钮保持「LINEで写真を送る」。第二轮时 Hero 与三项允许服务使用中性示意图；第三轮已更新为有标注的 AI 室内氛围图。内装補修和四个案例仍待真实照片；Logo、favicon、LINE、店铺链接和政策草案的待确认状态不变。
+
+本轮仅提交 layout-raizin-inspired 的 PR，保留六页 noindex，不更改 Pages 发布来源、不绑定域名、不自动合并。截图和检查记录见该 PR 及交付文件；仓库不包含临时浏览器或截图测试依赖。
+
+## 第三轮视觉精修（2026-10-03）
+
+结构与信息顺序不变。Logo 为透明无框占位，统一配置不变；手机 Hero、服务、FAQ 继续纵向阅读，LINE 准备提示降为按钮辅助说明。压缩区块间距、统一三项服务图比例、简化真实施工照片占位、减轻底部咨询栏并保留 safe-area。价格口径与全部 noindex 不变。验收与待补清单见 VISUAL_REVIEW.md。
+
+### 正式 Logo 已接入
+
+用户提供的金色月轮/房屋 Logo 已内嵌到统一 company-logo.svg，不重绘；调整显示范围排除截图外围空白。其余真实照片位置和 LINE/店铺链接配置继续保留，后续收到资料再替换。
