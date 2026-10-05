@@ -1,3 +1,5 @@
+> 2026-10-05 持续更新规则优先于下方历史说明：案例数据改为 works-data.js，当前4组完整案例已接入，宠物案例待 Before；首页氛围/服务图无 AI 可见提示，WORKS 只允许真实照片。
+
 # tsukinowa-website — 月輪合同会社 / GETURIN LLC
 
 独立静态官网第一版。HTML / CSS / JavaScript，无第三方运行依赖、数据库、Firebase、登录、广告或追踪脚本。未访问或修改 geruninn。Hero 与允许的服务图为明确标注的中性示意图，真实施工案例目前为专用占位框；第三轮已将 Hero 与クロス/CF/原状回復更换为注明「イメージ / AI生成・施工事例ではありません」的室内氛围图。公司 Logo 已由用户提供，固定文件 company-logo.svg 内嵌金色月轮与房屋原图，没有重新设计 Logo。favicon 是临时「月」文字图标。
@@ -48,9 +50,9 @@ tsukinowa-website/
 - `assets/images/works/real/`：公司实际施工照片，当前为空。
 - `assets/images/works/placeholders/real-photo.svg`：真实照片未提供时的占位框，不能当成已公开施工记录。
 
-**AI / 示意图仅用于** Hero 完成后室内氛围、クロス張替え / CF・床施工 / 原状回復的服务说明，以及マンション / アパート / 戸建て / ホテル / 民泊 / 管理物件的対応物件说明。不要附加「施工実績」「実際の施工例」等标签。中性示意图标注「イメージ」；替换为 AI 图后，说明改为「AI生成の室内イメージ（施工事例ではありません）」或「AI生成のサービスイメージ」。alt 同步说明来源，不能暗示为公司完工照片。
+**AI / 示意图仅用于** Hero 完成后室内氛围、クロス張替え / CF・床施工 / 原状回復的服务说明，以及マンション / アパート / 戸建て / ホテル / 民泊 / 管理物件的対応物件说明。不要附加「施工実績」「実際の施工例」等标签。首页氛围/服务图不显示 AI 来源提示，alt 描述为室内イメージ，不暗示为公司完工照片。AI 图片不得进入施工实绩。
 
-**施工事例 / WORKS、Before / After、穴補修（壁穴補修）、ドア補修、其他明显破损修复原则上且本项目固定使用真实施工照片**。首页四个施工案例枠按穴補修、ドア補修、クロス張替え、CF・床施工排列，当前全部保留占位。内装補修服务图同样使用真实照片专用占位，不用 AI 模拟修复。用户未提供照片时不编造项目、客户、地址、成果或评价。
+**施工事例 / WORKS、Before / After、穴補修（壁穴補修）、ドア補修、其他明显破损修复原则上且本项目固定使用真实施工照片**。首页自动展示最新4条已发布真实案例，不固定类别或案例。内装補修服务图同样使用真实照片专用占位，不用 AI 模拟修复。用户未提供照片时不编造项目、客户、地址、成果或评价。
 
 Hero：在 `index.html` 修改 `.hero-image img` 的 src、alt、width、height 和 figcaption，文件放入 `ai/hero/` 或 `illustrations/hero/`。三个允许的服务图分别放入 `ai/services/` 或 `illustrations/services/`，修改首页 src、alt 和 `.service-image-caption`。内装補修服务图只替换为 `works/real/` 中的授权真实照片。Hero 不懒加载，其他服务与案例图片保持 lazy loading；保持现有图片比例和响应式布局。
 
@@ -58,25 +60,7 @@ Hero：在 `index.html` 修改 `.hero-image img` 的 src、alt、width、height 
 
 ## 新增真实施工案例
 
-编辑 `assets/js/data.js` 的 `works` 数组，首页与 works.html 自动同步。`imageType` 支持 `"real"` / `"illustration"`。准备中条目的 `imageType: "real"` 表示该位置专供真实照片，**不代表已经存在真实案例**，必须同时保持 `placeholder: true`。替换为真实照片时使用如下结构（尖括号内容必须改为已核实资料）：
-
-```javascript
-{
-  title: "ドア補修",
-  area: "<已核实的实际施工地区>",
-  propertyType: "<实际物业类型>",
-  content: "<实际施工内容>",
-  before: "assets/images/works/real/<case-id>-before.webp",
-  after: "assets/images/works/real/<case-id>-after.webp",
-  description: "<简短的真实施工说明>",
-  imageType: "real",
-  placeholder: false
-}
-```
-
-真实照片路径只接受 `assets/images/works/real/` 下的 JPG / JPEG / PNG / WebP / AVIF；文件名与可选子目录使用英文字母、数字、连字符、下划线。仅在 `imageType: "real"`、`placeholder: false` 且 Before / After 均为真实目录照片路径时展示真实照片和案例资料。`illustration`、缺失分类、不完整路径或来自 AI / 示意目录的条目都显示真实照片专用占位，并隐藏项目地区、物业和成果说明；照片加载失败也返回占位状态。这是防止维护时误用的检查，不会自动鉴别照片真伪，维护者仍须核实来源。
-
-准备中条目保持 `placeholder: true`，不虚构地区、物业或成果。全部照片准备好后，再更新 index.html / works.html 的整体「掲載準備中」说明；部分已发布时改为「掲載準備中の項目もあります」。不要添加客户姓名、具体房号、住址、未授权照片或内部资料。图片公开前检查并移除隐私和不必要的 EXIF 信息。
+参见 [WORKS_UPDATE_GUIDE.md](WORKS_UPDATE_GUIDE.md)。唯一案例数据入口为 `assets/js/works-data.js`；`data.js` 仅保留联系方式和价格配置。首页按日期倒序自动取最新4条，Works 页显示全部已发布真实案例；未发布记录不显示为施工实绩。
 
 ## 后续真实照片清单
 
@@ -135,7 +119,7 @@ canonical、og:url、og:image、robots.txt 和六页 sitemap 已设为目标测�
 
 首页按 Hero → 选择理由 → 服务案内 → 法人/个人分流 → 施工事例 → 料金 → 对应物业/地区 → LINE 写真咨询 → 五步流程 → FAQ → 联系区 → Footer 排列。手机优势单列、服务上下排列、流程纵向；桌面服务图文交替。法人/个人按钮分别锚点到报价说明。服务「詳しく見る」沿用联系页，并预选对应服务。
 
-首页最多显示四个案例，已发布真实案例优先。首页真实案例为施工后大图、标签、地区/物业/说明，Before / After 可展开；列表页继续显示真实配对照片。未发布案例只展示一个真实照片专用占位，不将占位伪装成 Before / After，亦不编造地区/物业。
+首页最多显示最新4个已发布案例：Before / After、标题、类别；点击进入 Works 对应锚点。Works 显示全部及已确认的资料。未发布案例不进入公开列表。
 
 LINE 仍由 data.js 的 lineUrl 统一控制；未配置时按钮跳到 contact.html#line，准备中提示保留。配置真实链接后，准备中提示自动隐藏，照片咨询按钮保持「LINEで写真を送る」。第二轮时 Hero 与三项允许服务使用中性示意图；第三轮已更新为有标注的 AI 室内氛围图。内装補修和四个案例仍待真实照片；Logo、favicon、LINE、店铺链接和政策草案的待确认状态不变。
 

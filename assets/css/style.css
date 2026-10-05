@@ -277,3 +277,14 @@ footer{padding-top:44px}.footer-grid{gap:36px}
 /* Official user-supplied logo; shared file serves all six pages. */
 .logo-slot{width:44px;height:46px}.brand{gap:12px}
 @media(max-width:600px){.logo-slot{width:36px;height:38px;margin-right:0}.brand{gap:10px}}
+
+/* Continuous real-photo works: preserve entire photos, including portrait repairs. */
+.work{min-width:0;scroll-margin-top:24px;overflow-wrap:anywhere}
+.work .comparison{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.work .comparison img{width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;background:var(--wash)}
+.work .comparison .notice{grid-column:1/-1}
+.work-preview-link{display:block}
+.work-preview-link:focus-visible,.work-heading a:focus-visible,.work-filter:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.works-filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 32px}
+.work-filter{font:inherit;font-size:14px;min-height:44px;padding:8px 16px;border:1px solid var(--line);background:white;color:var(--ink);cursor:pointer}
+.work-filter[aria-pressed="true"]{border-color:var(--gold);background:var(--wash)}
