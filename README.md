@@ -1,3 +1,5 @@
+> 当前维护方式：施工实绩已支持私有网页后台 `admin/works.html`。一次性接入独立 Firebase 项目后，上传/编辑/发布无需改 GitHub 代码。参见 [FIREBASE_WORKS_SETUP.md](FIREBASE_WORKS_SETUP.md)。Firebase 尚未配置时继续使用现有4组公开静态案例；待补图案例保留草稿。下方第一版/历史轮次说明仅供追溯。
+
 > 2026-10-05 持续更新规则优先于下方历史说明：案例数据改为 works-data.js，当前4组完整案例已接入，宠物案例待 Before；首页氛围/服务图无 AI 可见提示，WORKS 只允许真实照片。
 
 # tsukinowa-website — 月輪合同会社 / GETURIN LLC
@@ -60,7 +62,7 @@ Hero：在 `index.html` 修改 `.hero-image img` 的 src、alt、width、height 
 
 ## 新增真实施工案例
 
-参见 [WORKS_UPDATE_GUIDE.md](WORKS_UPDATE_GUIDE.md)。唯一案例数据入口为 `assets/js/works-data.js`；`data.js` 仅保留联系方式和价格配置。首页按日期倒序自动取最新4条，Works 页显示全部已发布真实案例；未发布记录不显示为施工实绩。
+参见 [WORKS_UPDATE_GUIDE.md](WORKS_UPDATE_GUIDE.md)。未配置 Firebase 时的备用案例入口为 `assets/js/works-data.js`；`data.js` 仅保留联系方式和价格配置。首页按日期倒序自动取最新4条，Works 页显示全部已发布真实案例；未发布记录不显示为施工实绩。
 
 ## 后续真实照片清单
 

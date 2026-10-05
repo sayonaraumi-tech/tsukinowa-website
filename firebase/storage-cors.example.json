@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["https://sayonaraumi-tech.github.io"],
+    "method": ["GET"],
+    "responseHeader": ["Content-Type", "Authorization"],
+    "maxAgeSeconds": 3600
+  }
+]

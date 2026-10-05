@@ -69,3 +69,10 @@
 - 图片仅用 real/<case-id>/before.webp 和 after.webp；不生成 After、不改原始施工内容。未配齐照片的记录 published: false，不公开。施工年月未知时留空，不虚构地区或物业。
 - 首页 Hero、クロス、CF、原状回復氛围/服务图不显示 AI 来源提示，继续按用途区分，绝不进入 WORKS / Before-After。
 - 保留地址、受付时间、くらしのマーケット纯文字、价格、LINE策略及全站 noindex。
+
+## 私有施工实绩管理后台（2026-10-05 用户确认）
+
+- 此次要求优先于第一版不接数据库的历史限制：独立官网接入可配置 Firebase Auth / Firestore / Storage；不复用 geruninn 凭据。
+- 管理入口 admin/works.html，UID 授权存私有 worksAdmins 集合；公开仅读取已发布真实案例，首页取最新4条。
+- 图片可独立上传、缺图可存草稿但不可发布，保持真实施工内容；既有静态案例保留作启动失败备用及迁移来源。
+- 安全规则限制管理员写入；不提交任何密码、私钥或 token。地址、价格、LINE、AI 图片隔离及 noindex 策略保持。

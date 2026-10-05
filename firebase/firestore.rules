@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function admin() {
+      return request.auth != null &&
+        exists(/databases/$(database)/documents/worksAdmins/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/worksAdmins/$(request.auth.uid)).data.enabled == true;
+    }
+    function photo(id, side, path) {
+      return path is string && (path == '' || path.matches('^works/' + id + '/' + side + '-[a-zA-Z0-9-]+[.](webp|jpg)$'));
+    }
+    function valid(id) {
+      let d = request.resource.data;
+      return id.matches('^[a-zA-Z0-9-]{1,80}$') &&
+        d.keys().hasAll(['title','category','date','area','propertyType','description','beforeImage','afterImage','published','imageType','createdAt','updatedAt','publishedAt']) &&
+        d.keys().hasOnly(['title','category','date','area','propertyType','description','beforeImage','afterImage','published','imageType','createdAt','updatedAt','publishedAt']) &&
+        d.title is string && d.title.size() > 0 && d.title.size() <= 120 &&
+        d.category in ['壁面補修','ドア補修','クロス','CF・床','原状回復','その他'] &&
+        d.date is string && (d.date == '' || d.date.matches('^[0-9]{4}-(0[1-9]|1[0-2])$')) &&
+        d.area is string && d.area.size() <= 120 && d.propertyType is string && d.propertyType.size() <= 120 &&
+        d.description is string && d.description.size() <= 3000 &&
+        d.published is bool && d.imageType == 'real' &&
+        photo(id, 'before', d.beforeImage) && photo(id, 'after', d.afterImage) &&
+        d.createdAt is timestamp && d.updatedAt == request.time &&
+        (d.publishedAt == null || d.publishedAt is timestamp) &&
+        (!d.published || (d.beforeImage != '' && d.afterImage != '' && d.publishedAt is timestamp));
+    }
+    match /worksAdmins/{uid} {
+      // Only the Firebase Console owner can provision/revoke administrators.
+      allow get: if request.auth != null && request.auth.uid == uid;
+      allow list, write: if false;
+    }
+    match /works/{id} {
+      allow read: if admin() || resource.data.published == true;
+      allow create: if admin() && valid(id) && request.resource.data.createdAt == request.time &&
+        (request.resource.data.publishedAt == null || request.resource.data.publishedAt == request.time);
+      allow update: if admin() && valid(id) && request.resource.data.createdAt == resource.data.createdAt &&
+        (request.resource.data.publishedAt == resource.data.publishedAt ||
+          (resource.data.publishedAt == null && request.resource.data.publishedAt == request.time));
+      allow delete: if admin();
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}
