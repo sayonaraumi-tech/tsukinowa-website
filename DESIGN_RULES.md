@@ -61,3 +61,27 @@
 - 全站统一「受付時間 9:30～18:30」及「土日祝もご相談・施工対応可（要日程調整）」。
 - くらしのマーケット仅显示「くらしのマーケット掲載店」文字，不设置链接、按钮或准备中链接占位；LINE 仍待配置。
 - 保持布局、价格及真实案例规则；只更新现有分支和 PR #1，不 merge、不改 main、不解除 noindex。
+
+## 持续更新施工实绩（2026-10-05 用户确认，优先于历史案例与图片提示说明）
+
+- 从当前 main 新建分支和新 PR，不直接改 main、不自动 merge、不改 geruninn。
+- 案例统一由 works-data.js 驱动；首页按施工年月（缺失时用首次发布日）倒序取最新4个已发布真实案例，Works 显示全部并提供轻量类别筛选。首页显示简洁 Before / After、标题、类别，链接到案例锚点。
+- 图片仅用 real/<case-id>/before.webp 和 after.webp；不生成 After、不改原始施工内容。未配齐照片的记录 published: false，不公开。施工年月未知时留空，不虚构地区或物业。
+- 首页 Hero、クロス、CF、原状回復氛围/服务图不显示 AI 来源提示，继续按用途区分，绝不进入 WORKS / Before-After。
+- 保留地址、受付时间、くらしのマーケット纯文字、价格、LINE策略及全站 noindex。
+
+## 私有施工实绩管理后台（2026-10-05 用户确认）
+
+- 此次要求优先于第一版不接数据库的历史限制：独立官网接入可配置 Firebase Auth / Firestore / Storage；不复用 geruninn 凭据。
+- 管理入口 admin/works.html，UID 授权存私有 worksAdmins 集合；公开仅读取已发布真实案例，首页取最新4条。
+- 图片可独立上传、缺图可存草稿但不可发布，保持真实施工内容；既有静态案例保留作启动失败备用及迁移来源。
+- 安全规则限制管理员写入；不提交任何密码、私钥或 token。地址、价格、LINE、AI 图片隔离及 noindex 策略保持。
+
+## XServer 迁移方向（2026-10-05 用户最新确认，优先于历史 Firebase 后台说明）
+
+- 对外官网保持纯静态 HTML/CSS/JS，移除官网 Auth/Firestore/Storage/Cloud Functions、配置示例、规则及 setup。内部 geruninn 完全独立，不修改。
+- 施工实绩以本地 works-data.js 与真实 WebP 对驱动；4组完整案例公开，宠物墙面缺 Before 继续草稿。首页最新4条、Works全部及筛选保留。
+- Hero/服务说明图不显示 AI 来源提示；WORKS/Before-After 仅真实照片。
+- 服务案内与表单选项共用 services-data.js，可追加经确认服务，无需改首页结构。
+- 联系表单只支持输入及端末内选图预览，送信禁用，不生成成功提示，不发送邮件、不上传。LINE URL/QR 未提供时简洁占位，不伪造。
+- 未来部署 XServer，后台建议 /admin/，此阶段仅写迁移计划，不实现后端。不 merge、不改 main、保留 noindex。

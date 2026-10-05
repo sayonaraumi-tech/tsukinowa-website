@@ -1,0 +1,11 @@
+{
+  "name": "tsukinowa-website",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/works-data.test.cjs",
+    "test:browser": "node tests/site-browser.test.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.56.0"
+  }
+}
