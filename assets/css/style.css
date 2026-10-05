@@ -288,3 +288,16 @@ footer{padding-top:44px}.footer-grid{gap:36px}
 .works-filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 32px}
 .work-filter{font:inherit;font-size:14px;min-height:44px;padding:8px 16px;border:1px solid var(--line);background:white;color:var(--ink);cursor:pointer}
 .work-filter[aria-pressed="true"]{border-color:var(--gold);background:var(--wash)}
+
+/* Existing service layout accepts any number of confirmed services. */
+.service-row.service-text-only{grid-template-columns:1fr}
+.line-qr{max-width:220px;min-height:180px;display:grid;place-items:center;border:1px solid var(--line);padding:18px;color:var(--muted);font-size:13px}
+.line-qr p{margin:0}.line-qr img{max-width:180px;height:auto}
+[hidden]{display:none!important}
+.line-direct{display:none}
+.photo-previews{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px}
+.photo-previews figure{margin:0;min-width:0}.photo-previews img{width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--wash)}
+.photo-previews figcaption{font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.contact-form .field{min-width:0}.contact-form input[type="file"]{max-width:100%;font-size:13px}
+.contact-form button:disabled{opacity:.55;cursor:default}
+@media(max-width:600px){.line-qr{display:none}.line-direct{display:inline-flex}}

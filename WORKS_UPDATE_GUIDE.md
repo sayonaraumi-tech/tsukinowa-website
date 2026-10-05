@@ -1,5 +1,3 @@
-> 日常新增案例请使用 [私有网页后台设置指南](FIREBASE_WORKS_SETUP.md)。以下为保留的静态备用数据维护方法，Firebase 启用后无需逐次修改此数据文件。
-
 # 持续更新施工实绩
 
 1. 新建 `assets/images/works/real/<case-id>/`（小写英文字母、数字、连字符）。

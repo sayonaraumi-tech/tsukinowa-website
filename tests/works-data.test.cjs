@@ -6,7 +6,6 @@ const vm = require('node:vm');
 const context = { window: {}, document: { querySelectorAll: () => [] } };
 vm.createContext(context);
 vm.runInContext(fs.readFileSync('assets/js/works-data.js', 'utf8'), context);
-vm.runInContext(fs.readFileSync('assets/js/works-model.js', 'utf8'), context);
 vm.runInContext(fs.readFileSync('assets/js/works.js', 'utf8'), context);
 const select = context.window.WORKS.publishedWorks;
 const record = (id, changes = {}) => ({ id, title: id, category: 'ドア補修', date: '2026-09', publishedAt: '2026-10-05', beforeImage: `assets/images/works/real/${id}/before.webp`, afterImage: `assets/images/works/real/${id}/after.webp`, imageType: 'real', published: true, ...changes });
@@ -26,9 +25,4 @@ test('AI, illustration paths, unknown provenance, drafts and duplicate IDs canno
   const good = record('good');
   const input = [good, good, record('ai', {imageType:'ai'}), record('missing', {imageType:undefined}), record('illustration', {beforeImage:'assets/images/illustrations/services/floor-v3.webp'}), record('wrong-case', {afterImage:good.afterImage}), record('draft', {published:false}), record('../escape')];
   assert.equal(Array.from(select(input), work => work.id).join(','), 'good');
-});
-
-test('Firebase timestamps prioritize publication time and keep drafts/AI/foreign paths hidden', () => {
-  const remote=(id,day,changes={})=>record(id,{source:'firebase',publishedAt:{toDate:()=>new Date(`2026-10-${day}T00:00:00Z`)},beforeImage:`works/${id}/before-123.webp`,afterImage:`works/${id}/after-456.jpg`,...changes});
-  assert.equal(Array.from(select([remote('old','01',{date:'2026-12'}),remote('latest','05'),remote('draft','06',{published:false}),remote('ai','07',{imageType:'ai'}),remote('foreign','08',{beforeImage:'works/latest/before-123.webp'})]),w=>w.id).join(','),'latest,old');
 });

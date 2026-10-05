@@ -76,3 +76,12 @@
 - 管理入口 admin/works.html，UID 授权存私有 worksAdmins 集合；公开仅读取已发布真实案例，首页取最新4条。
 - 图片可独立上传、缺图可存草稿但不可发布，保持真实施工内容；既有静态案例保留作启动失败备用及迁移来源。
 - 安全规则限制管理员写入；不提交任何密码、私钥或 token。地址、价格、LINE、AI 图片隔离及 noindex 策略保持。
+
+## XServer 迁移方向（2026-10-05 用户最新确认，优先于历史 Firebase 后台说明）
+
+- 对外官网保持纯静态 HTML/CSS/JS，移除官网 Auth/Firestore/Storage/Cloud Functions、配置示例、规则及 setup。内部 geruninn 完全独立，不修改。
+- 施工实绩以本地 works-data.js 与真实 WebP 对驱动；4组完整案例公开，宠物墙面缺 Before 继续草稿。首页最新4条、Works全部及筛选保留。
+- Hero/服务说明图不显示 AI 来源提示；WORKS/Before-After 仅真实照片。
+- 服务案内与表单选项共用 services-data.js，可追加经确认服务，无需改首页结构。
+- 联系表单只支持输入及端末内选图预览，送信禁用，不生成成功提示，不发送邮件、不上传。LINE URL/QR 未提供时简洁占位，不伪造。
+- 未来部署 XServer，后台建议 /admin/，此阶段仅写迁移计划，不实现后端。不 merge、不改 main、保留 noindex。
